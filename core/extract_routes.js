@@ -1,4 +1,4 @@
-var _ = require('lodash');
+var _ = require('underscore');
 var path = require('path');
 var glob = require('glob');
 var fs = require('fs');

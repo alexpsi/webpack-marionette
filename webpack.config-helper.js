@@ -1,5 +1,5 @@
 'use strict';
-const ROUTES = require('./core/extract.js');
+const ROUTES = require('./core/extract_routes.js');
 const Path = require('path');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -26,7 +26,7 @@ module.exports = (options) => {
         '__ROUTES__': JSON.stringify(ROUTES)
       }),
       new HtmlWebpackPlugin({
-        template: './app/index.html'
+        template: './app/theme/index.html'
       }),
       new Webpack.ProvidePlugin({
         _: 'underscore',

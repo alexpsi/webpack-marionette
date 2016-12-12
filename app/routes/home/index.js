@@ -1,8 +1,8 @@
-import BlockAlpha from 'block-alpha';
+import RecipeList from 'recipe/list/index.js';
 
 //BEGIN ROUTES
 var routes = {
-  'testview1': 'testview1'
+  '': 'home'
 }
 //END ROUTES
 
@@ -10,7 +10,7 @@ export default (layout) => Backbone.Router.extend({
   routes,
   initialize(options) {
   },
-  testview1(params) {
-    layout.showChildView('region1', new BlockAlpha())
+  home(params) {
+    layout.showChildView('region1', new RecipeList());
   },
 })

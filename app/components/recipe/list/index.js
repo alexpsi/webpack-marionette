@@ -28,8 +28,7 @@ let TableBody = Mn.CollectionView.extend({
 })
 
 export default Mn.View.extend({
-  tagName: 'table',
-  className: 'table table-hover',
+  className: 'fullwidth',
   template,
   regions: {
     body: {
@@ -37,13 +36,28 @@ export default Mn.View.extend({
       replaceElement: true
     }
   },
+  ui: {
+    'previous': '.js-previous',
+    'next': '.js-next',
+  },
+  events: {
+    'click @ui.previous': 'onPrevious',
+    'click @ui.next': 'onNext',
+  },
   initialize: function() {
     this.collection = new models.RecipesCollection();
+    window.probe = this.collection;
     this.collection.fetch();
   },
   onRender: function() {
     this.showChildView('body', new TableBody({
       collection: this.collection
     }));
-  }
+  },
+  onNext: function() {
+    this.collection.getNextPage();
+  },
+  onPrevious: function() {
+    this.collection.getPreviousPage();
+  },
 });

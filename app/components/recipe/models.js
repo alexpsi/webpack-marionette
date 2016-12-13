@@ -1,4 +1,5 @@
 let RecipeModel = Bb.Model.extend({
+  urlRoot: 'http://localhost:3000/recipes',
   defaults: {
     prep: '-',
     cook: '-',

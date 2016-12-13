@@ -1,8 +1,19 @@
-<div id="content">
-	<h1>Webpack</h1>
-	<h2>Welcome!</h2>
-	<ul>
-		<li><a href="https://webpack.github.io/">Webpack homepage</a></li>
-		<li><a href="http://marionettejs.com/">Marionette.js homepage</a></li>
-	</ul>
-</div>
+<% if(!loading) { %>
+	<div class="row">
+		<h1><%- title %></h1>
+	</div>
+	<div class="row">
+		<div class="column column-75">
+			<h2>Directions</h2>
+			<%= marked(directions) %>
+		</div>
+		<div class="column column-25">
+			<b>Prep time: </b> <%- prep %>
+			<b>Cook time: </b> <%- cook %>
+			<h2>Ingredients</h2>
+			<%= marked(ingredients) %>
+		</div>
+	</div>
+<% } else { %>
+	Loading...
+<% } %>

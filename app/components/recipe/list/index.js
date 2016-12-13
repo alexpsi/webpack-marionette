@@ -12,7 +12,10 @@ let TableItem = Mn.View.extend({
     'click @ui.item': 'onClick',
   },
   onClick: function() {
-    console.log(this.model.get('title'))
+    Backbone.history.navigate(
+      `recipe/${this.model.get('id')}`,
+      {trigger: true}
+    );
   }
 });
 

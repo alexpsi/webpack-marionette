@@ -21,6 +21,7 @@
     "backbone.marionette": "^3.1.0",
     "backbone.paginator": "^2.0.5",
     "jquery": "^3.1.1",
+    "marked": "^0.3.6",
     "milligram": "^1.2.3"
   },
   "devDependencies": {

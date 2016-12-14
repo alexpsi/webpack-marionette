@@ -4,7 +4,14 @@ let RecipeModel = Bb.Model.extend({
     prep: '-',
     cook: '-',
     portions: '-',
-  }
+  },
+  schema: {
+    title: { type: 'Text', validators: ['required'] },
+    prep: 'Text',
+    cook: 'Text',
+    directions: { type: 'TextArea', validators: ['required'] },
+    ingredients: { type: 'TextArea', validators: ['required'] },
+  },
 });
 
 let RecipesCollection = Bb.PageableCollection.extend({
@@ -24,3 +31,17 @@ export default {
   RecipeModel,
   RecipesCollection,
 }
+
+
+/*
+schema: {
+  title:      { type: 'Select', options: ['Mr', 'Mrs', 'Ms'] },
+  name:       'Text',
+  email:      { validators: ['required', 'email'] },
+  birthday:   'Date',
+  password:   'Password',
+  address:    { type: 'NestedModel', model: Address },
+  notes:      { type: 'List', itemType: 'Text' },
+  notesa: 'TextArea'
+},
+*/

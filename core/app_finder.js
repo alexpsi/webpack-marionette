@@ -11,7 +11,7 @@ _.each(__ROUTES__, (value, key) => {
 });
 
 export default path => {
-  if (!path) path = '';
+  if (!path) { path = ''; }
   const matcher = route => route.test(path);
   return _.findKey(customAppRoutes, routes => _.some(routes, matcher));
 }

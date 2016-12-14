@@ -2,7 +2,7 @@ import RecipeDetail from 'recipe/detail/index.js';
 
 //BEGIN ROUTES
 var routes = {
-  'recipe/:recipe_id': 'recipe'
+  'recipe/:id': 'recipe'
 }
 //END ROUTES
 

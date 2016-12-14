@@ -11,7 +11,8 @@ let TableItem = Mn.View.extend({
   events: {
     'click @ui.item': 'onClick',
   },
-  onClick: function() {
+  onClick: function(e) {
+    e.preventDefault();
     Backbone.history.navigate(
       `recipe/${this.model.get('id')}`,
       {trigger: true}
@@ -46,7 +47,6 @@ export default Mn.View.extend({
   },
   initialize: function() {
     this.collection = new models.RecipesCollection();
-    window.probe = this.collection;
     this.collection.fetch();
   },
   onRender: function() {

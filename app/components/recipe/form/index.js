@@ -4,22 +4,42 @@ import models from '../models.js';
 
 export default Mn.View.extend({
   template,
+  ui: {
+    'save': '.js-save',
+  },
+  events: {
+    'click @ui.save': 'onSave',
+  },
   regions: {
     form: '.js-form',
-    buttons: '.js-buttons'
+  },
+  modelEvents: {
+    'change:loading': 'render',
   },
   initialize: function() {
-    this.model = new models.RecipeModel({id: this.options.id});
+    window.probe = this;
+    this.model = new models.RecipeModel(this.options);
     this.model.set('loading', true);
-    this.form = new Backbone.Form({
-      model: this.model
-    });
+
     this.model.fetch().then(() => {
-      this.model.set('loading', false);
-      this.render();
-      this.showChildView('form', new Backbone.Form({
+      this.form = new Backbone.Form({
         model: this.model
-      }));
+      });
+      this.model.set('loading', false);
     });
   },
+  onRender: function() {
+    if (this.model.get('loading')) return;
+    this.showChildView('form', this.form);
+  },
+  onSave: function() {
+    this.form.commit();
+    this.model.set('loading', true);
+    this.model.save().then(() => {
+      this.form = new Backbone.Form({
+        model: this.model
+      });
+      this.model.set('loading', false);
+    });
+  }
 });

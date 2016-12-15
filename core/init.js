@@ -17,3 +17,11 @@ var App = new Marionette.Application({
 });
 
 $(document).ready(() => App.start());
+$(document).on('click', 'a[data-sref]', function(e) {
+  e.preventDefault();
+  Backbone.history.navigate(
+     Bb.history.fragment + '/' +
+     $(this).attr('data-sref'),
+     {trigger: true}
+  );
+});

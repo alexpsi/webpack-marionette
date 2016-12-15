@@ -13,6 +13,6 @@ export default (layout) => Backbone.Router.extend({
     layout.showChildView('region1', new RecipeForm({id: params}))
   },
   recipeNew(params) {
-    layout.showChildView('region1', new RecipeForm({id: params}))
+    layout.showChildView('region1', new RecipeForm())
   },
 })

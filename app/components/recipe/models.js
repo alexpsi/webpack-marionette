@@ -1,3 +1,5 @@
+import PageableCollection from 'backbone.paginator';
+
 let RecipeModel = Bb.Model.extend({
   urlRoot: 'http://localhost:3000/recipes',
   //url: 'http://localhost:3000/recipes',
@@ -15,7 +17,7 @@ let RecipeModel = Bb.Model.extend({
   },
 });
 
-let RecipesCollection = Bb.PageableCollection.extend({
+let RecipesCollection = PageableCollection.extend({
   url: 'http://localhost:3000/recipes',
   model: RecipeModel,
   mode: 'infinite',

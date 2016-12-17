@@ -12,6 +12,9 @@
     "Mn": true,
     "Marionette": true,
     "__ROUTES__": true,
+    "describe": true,
+    "it": true,
+    "expect": true
   },
   "parserOptions": {
     "sourceType": "module"

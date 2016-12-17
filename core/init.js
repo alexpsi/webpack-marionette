@@ -2,8 +2,6 @@ import 'babel-polyfill';
 import Router from './router';
 import Initial from './../app/initialize.js';
 import Layout from './../app/theme/layout.js';
-import PageableCollection from 'backbone.paginator';
-Backbone.PageableCollection = PageableCollection;
 
 var App = new Marionette.Application({
   onStart: function(options) {

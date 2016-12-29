@@ -3,12 +3,8 @@ const ROUTES = require('./core/extract_routes.js');
 const Path = require('path');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
-const CompressionPlugin = require('compression-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 
-const nodeModulesPath = Path.resolve(__dirname, 'node_modules');
 
 module.exports = (options) => {
 
@@ -73,14 +69,7 @@ module.exports = (options) => {
         mangle: {screw_ie8: true, keep_fnames: true}
       }),
       new Webpack.optimize.OccurenceOrderPlugin(),
-      new Webpack.optimize.AggressiveMergingPlugin(),
-      new CompressionPlugin({
-        asset: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: /\.js$|\.html$/,
-        threshold: 10240,
-        minRatio: 0.8
-      })
+      new Webpack.optimize.AggressiveMergingPlugin()
     );
 
     /*

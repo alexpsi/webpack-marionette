@@ -4,17 +4,20 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      'app/tests/*.js'
+      'app/components/**/tests/*.js'
     ],
     exclude: [
     ],
     preprocessors: {
-      'app/tests/**/*.js': ['webpack']
+      'app/components/**/tests/*.js': ['webpack']
     },
     webpack: {
       module: webpackConf.module,
       resolve: webpackConf.resolve,
       plugins: webpackConf.plugins
+    },
+    webpackMiddleware: {
+      stats: 'errors-only'
     },
     reporters: ['spec'],
     port: 9876,

@@ -1,17 +1,20 @@
 {
-  "name": "your-app",
-  "description": "Description",
-  "author": "Your Name",
-  "version": "0.0.1",
+  "name": "webpack-marionette",
+  "description": "A small boilerplate introducing webpack and es6 features to a Marionette/Backbone application",
+  "author": "alexpsi",
+  "version": "0.4.1",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/alexpsi/webpack-marionette"
   },
   "scripts": {
-    "build": "webpack --config webpack-prod.config.js --colors",
+    "build": "rimraf dist && webpack --config webpack-prod.config.js --colors",
     "analyze": "webpack --config webpack-prod.config.js --json | webpack-bundle-size-analyzer",
     "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors",
-    "test": "mocha-webpack --webpack-config webpack-dev.config.js \"app/**/**/tests/*.js\"",
+    "test": "karma start --single-run",
+    "tdd": "karma start",
+    "json": "json-server --watch ./app/db.json",
+    "eject": "rimraf components/* && rimraf routes/*",
     "dash": "webpack-dashboard -- webpack-dev-server --config webpack-dev.config.js"
   },
   "dependencies": {

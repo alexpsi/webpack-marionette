@@ -22,7 +22,7 @@ let RecipesCollection = PageableCollection.extend({
   model: RecipeModel,
   mode: 'infinite',
   state: {
-    pageSize: 2
+    pageSize: 20
   },
   queryParams: {
     currentPage: '_page',
@@ -34,17 +34,3 @@ export default {
   RecipeModel,
   RecipesCollection,
 }
-
-
-/*
-schema: {
-  title:      { type: 'Select', options: ['Mr', 'Mrs', 'Ms'] },
-  name:       'Text',
-  email:      { validators: ['required', 'email'] },
-  birthday:   'Date',
-  password:   'Password',
-  address:    { type: 'NestedModel', model: Address },
-  notes:      { type: 'List', itemType: 'Text' },
-  notesa: 'TextArea'
-},
-*/

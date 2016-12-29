@@ -1,4 +1,4 @@
-import DetailView from '../components/recipe/detail/index.js';
+import DetailView from '../detail/index.js';
 import { expect } from 'chai';
 
 

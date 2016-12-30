@@ -22,11 +22,23 @@ let RecipesCollection = PageableCollection.extend({
   model: RecipeModel,
   mode: 'infinite',
   state: {
-    pageSize: 20
+    pageSize: 20,
   },
   queryParams: {
     currentPage: '_page',
     pageSize: '_limit'
+  },
+  parseState: function(response) {
+    return { totalRecords: this.totalRecords || 0};
+  },
+  fetch: function(options) {
+    var jqXHR = PageableCollection.prototype.fetch.call(this, options);
+    jqXHR.done(() => {
+      this.totalRecords = parseInt(
+        jqXHR.getResponseHeader('X-Total-Count')
+      );
+    });
+    return jqXHR;
   }
 });
 
